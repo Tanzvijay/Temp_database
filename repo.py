@@ -5,9 +5,7 @@ import psycopg2
 import requests
 import xml.etree.ElementTree as ET
 
-TALLY_URL = "https://obeyable-celina-provisorily.ngrok-free.dev"
-TALLY_URL="https://obeyable-celina-provisorily.ngrok-free.dev"
-
+TALLY_URL = "http://168.144.119.48/"
 def get_connection():
     return psycopg2.connect(
         host=os.getenv("DB_HOST"),
