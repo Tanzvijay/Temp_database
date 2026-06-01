@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+from typing import Optional
 
 from repo import (
     fetch_Outstanding_data,
@@ -17,16 +18,6 @@ def list_tables():
 
 
 # PostgreSQL tables only
-@router.get("/tables/{table_name}/data/")
-def get_table_data_endpoint(
-    table_name: str,
-    limit: int = 100
-):
-
-    return get_table_data(
-        table_name,
-        limit
-    )
 
 
 # Tally XML endpoint
@@ -72,3 +63,28 @@ def outstanding_report_data_endpoint(
         "count": len(data),
         "data": data
     }
+@router.get("/tables/{table_name}/data/")
+def get_table_data_endpoint(
+    table_name: str,
+    limit: int = 100,
+    columns: Optional[str] = None,
+    filter_column: Optional[str] = None,
+    filter_value: Optional[str] = None,
+    date_column: Optional[str] = None,
+    from_date: Optional[str] = None,
+    to_date: Optional[str] = None,
+    group_by: Optional[str] = None,
+    agg_func: Optional[str] = "sum"    # ✅ NEW
+):
+    return get_table_data(
+        table_name=table_name,
+        limit=limit,
+        columns=columns,
+        filter_column=filter_column,
+        filter_value=filter_value,
+        date_column=date_column,
+        from_date=from_date,
+        to_date=to_date,
+        group_by=group_by,
+        agg_func=agg_func              # ✅ NEW
+    )

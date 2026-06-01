@@ -1,8 +1,8 @@
 fastapi
 uvicorn
 pandas
+numpy
 psycopg2-binary
-python-dotenv
 requests
 openpyxl
 sqlalchemy
