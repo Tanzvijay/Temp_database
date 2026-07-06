@@ -3,6 +3,6 @@ uvicorn
 pandas
 numpy
 psycopg2-binary
-requests
+
 openpyxl
 sqlalchemy
